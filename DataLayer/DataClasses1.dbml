@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="AccessControldb" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=JARVIS;Initial Catalog=AccessControldb;User ID=sa;Pooling=False" SettingsObjectName="DataLayer.Properties.Settings" SettingsPropertyName="AccessControldbConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.EmployeeData" Member="EmployeeDatas">
+    <Type Name="EmployeeData">
+      <Column Name="EmployeeId" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="EmployeeName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="EmployeeAddress" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="EmployeeEmail" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="EmployeePhoneNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="EmployeeEntryTime" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="EmployeeFinishTime" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="EmployeeData_EmployeeData" Member="EmployeeData2" ThisKey="EmployeeId" OtherKey="EmployeeId" Type="EmployeeData" Cardinality="One" />
+      <Association Name="EmployeeData_Login" Member="Logins" ThisKey="EmployeeId" OtherKey="EmployeeId" Type="Login" />
+      <Association Name="EmployeeData_EmployeeData" Member="EmployeeData1" ThisKey="EmployeeId" OtherKey="EmployeeId" Type="EmployeeData" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Login" Member="Logins">
+    <Type Name="Login">
+      <Column Name="UserID" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="EmployeeId" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="EmployeeData_Login" Member="EmployeeData" ThisKey="EmployeeId" OtherKey="EmployeeId" Type="EmployeeData" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
